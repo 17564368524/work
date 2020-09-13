@@ -1,0 +1,31 @@
+# 为啥编写代码
+ >原因是单元测试有不少的优点，能够给我们的工作带来很大的帮助。单元测试的优点1.帮助开发人员编写代码，提升质量、减少bug。如果大家分析一下我们bug原因的构成，我想有会有一部分bug的原因是开发人员在编写工作代码的时候没有考虑到某些case或者边际条件。造成这种问题的原因很多，其中很重要的一个原因是我们对工作代码所要完成的功能思考不足，而编写单元测试，
+ 特别是先写单元测试再写工作代码就可以帮助开发人员思考编写的代码到底要实现哪些功能。
+ 例如实现一个简单的用户注册功能的业务类方法，用单元测试再写工作代码的方式来工作的话开发人员就会先考虑各种场景相关，例如正常注册、用户名重复、没有满足必要的填写内容......等等。
+ # 冒泡排序代码
+ > public class BubbleSort {
+　　public static void main(String[] args) {
+　　　　int[] arr={6,3,8,2,9,1};
+　　　　System.out.println("排序前数组为：");
+　　　　for(int num:arr){
+　　　　　　System.out.print(num+" ");
+　　　　}
+　　　　for(int i=0;i<arr.length-1;i++){
+　　　　　　for(int j=0;j<arr.length-1-i;j++){
+　　　　　　　　if(arr[j]>arr[j+1]){
+　　　　　　　　　　int temp=arr[j];
+　　　　　　　　　　arr[j]=arr[j+1];
+　　　　　　　　　　arr[j+1]=temp;
+　　　　　　　　}
+　　　　　　}
+　　　　} 
+　　　　System.out.println();
+　　　　System.out.println("排序后的数组为：");
+ 　　　　for(int num:arr){
+ 　　　　　　System.out.print(num+" ");
+ 　　　　} 
+　　}
+ }
+ > void  bubbleSort(int a[],int n) { int i,temp,flag; if (n>1)               
+ //排序数量大于1个,才需要排序 { flag=0;                 //是否完成排序的标识 for (i=0;i<n-1;i++) if (a[i]>a[i+1]) { temp=a[i]; a[i]=a[i+1]; a[i+1]=temp; flag=1; 
+ //若发生交换,则表明尚未排好序 } if (flag==1) bubbleSort(a,n-1);          //递归调用 } }
